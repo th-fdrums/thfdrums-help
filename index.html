@@ -69,6 +69,23 @@
   }
   nav a:hover { color: var(--text); background: var(--panel); }
 
+  .lang-switch { display: flex; gap: 6px; }
+  .lang-switch button {
+    background: var(--panel);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 13px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .lang-switch button.active { background: var(--accent); color: #1a0e04; border-color: var(--accent); font-weight: 600; }
+
+  .lang-block { display: none; }
+  .lang-block.active { display: block; }
+
   .hero {
     max-width: 920px;
     margin: 0 auto;
@@ -229,33 +246,33 @@
 <header>
   <div class="header-inner">
     <div class="wordmark">Th-<span>FDrums</span> Player</div>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#mapa">Mapa</a>
-      <a href="#mixer">Mixer</a>
-      <a href="#musica">Música</a>
-      <a href="#importar">Importar</a>
-      <a href="#menu">Menu</a>
-    </nav>
+    <div class="lang-switch">
+      <button class="active" onclick="showLang('pt')">Português</button>
+      <button onclick="showLang('en')">English</button>
+      <button onclick="showLang('es')">Español</button>
+    </div>
   </div>
 </header>
 
+<!-- ==================== PT ==================== -->
+<div id="pt" class="lang-block active">
+
 <div class="hero">
   <h1>Guia completo do <span>app</span></h1>
-  <p>Passo a passo de cada recurso, com prints reais do aplicativo. Use o menu acima pra pular direto pra aba que você quer entender melhor.</p>
+  <p>Passo a passo de cada recurso, com prints reais do aplicativo. Use o menu abaixo pra pular direto pra aba que você quer entender melhor.</p>
   <div class="toc">
-    <a href="#inicio">Início</a>
-    <a href="#mapa">Mapa</a>
-    <a href="#mixer">Mixer</a>
-    <a href="#musica">Música</a>
-    <a href="#importar">Importar</a>
-    <a href="#menu">Menu ☰</a>
+    <a href="#inicio-pt">Início</a>
+    <a href="#mapa-pt">Mapa</a>
+    <a href="#mixer-pt">Mixer</a>
+    <a href="#musica-pt">Música</a>
+    <a href="#importar-pt">Importar</a>
+    <a href="#menu-pt">Menu ☰</a>
   </div>
 </div>
 
 <main>
 
-<section class="feature" id="inicio">
+<section class="feature" id="inicio-pt">
   <span class="feature-tag">Aba Início</span>
   <h2>Conectar o módulo e escolher o kit</h2>
   <p>É por aqui que você define qual kit de bateria vai tocar e pra onde o som vai sair. O app detecta módulos MIDI conectados automaticamente — por USB assim que o cabo é plugado, ou por Bluetooth (BLE-MIDI) se o módulo já estiver pareado nas configurações do sistema.</p>
@@ -273,7 +290,7 @@
   </div>
 </section>
 
-<section class="feature" id="mapa">
+<section class="feature" id="mapa-pt">
   <span class="feature-tag">Aba Mapa</span>
   <h2>Mapeamento de notas e calibração do chimbal</h2>
   <p>Aqui você vê e ajusta qual nota MIDI dispara cada peça do kit. Tem três modos, alternáveis pelas abas no topo:</p>
@@ -296,7 +313,7 @@
   </div>
 </section>
 
-<section class="feature" id="mixer">
+<section class="feature" id="mixer-pt">
   <span class="feature-tag">Aba Mixer</span>
   <h2>Volume, EQ, compressor, gate e reverb por peça</h2>
   <p>Cada peça do kit tem seu próprio canal de mixagem — volume e afinação (em semitons) sempre visíveis, e um bloco de processamento opcional com gate, EQ, compressor e reverb. O bus Master reúne tudo com seu próprio EQ, compressor e reverb.</p>
@@ -321,7 +338,7 @@
   </div>
 </section>
 
-<section class="feature" id="musica">
+<section class="feature" id="musica-pt">
   <span class="feature-tag">Aba Música</span>
   <h2>Tocar junto com uma faixa e gravar a sessão</h2>
   <p>Importe uma música (MP3, WAV, AAC, OGG ou FLAC) pra tocar junto enquanto pratica, e grave a sessão inteira — bateria e música misturadas — em áudio ou vídeo.</p>
@@ -339,7 +356,7 @@
   </div>
 </section>
 
-<section class="feature" id="importar">
+<section class="feature" id="importar-pt">
   <span class="feature-tag">Aba Importar</span>
   <h2>Seis formas de trazer um kit pro app</h2>
   <p>O importador de kit aceita vários formatos de origem — escolha no menu superior qual tipo de arquivo você tem:</p>
@@ -363,7 +380,7 @@
   </div>
 </section>
 
-<section class="feature" id="menu">
+<section class="feature" id="menu-pt">
   <span class="feature-tag">Menu ☰</span>
   <h2>Tema, idioma, latência, câmera e ajuda</h2>
   <p>O ícone ☰ no canto superior direito, disponível em qualquer aba, reúne as configurações gerais do app.</p>
@@ -386,10 +403,322 @@
 </section>
 
 </main>
+<footer>Th-FDrums Player — este guia não é afiliado à Play Store, é só documentação do app.</footer>
+</div>
 
-<footer>
-  Th-FDrums Player — este guia não é afiliado à Play Store, é só documentação do app.
-</footer>
+<!-- ==================== EN ==================== -->
+<div id="en" class="lang-block">
+
+<div class="hero">
+  <h1>Complete guide to the <span>app</span></h1>
+  <p>Step-by-step for every feature, with real screenshots from the app. Use the menu below to jump straight to the tab you want to understand better.</p>
+  <div class="toc">
+    <a href="#inicio-en">Home</a>
+    <a href="#mapa-en">Map</a>
+    <a href="#mixer-en">Mixer</a>
+    <a href="#musica-en">Music</a>
+    <a href="#importar-en">Import</a>
+    <a href="#menu-en">Menu ☰</a>
+  </div>
+</div>
+
+<main>
+
+<section class="feature" id="inicio-en">
+  <span class="feature-tag">Home tab</span>
+  <h2>Connect the module and pick the kit</h2>
+  <p>This is where you set which drum kit plays and where the sound goes. The app detects connected MIDI modules automatically — over USB as soon as the cable is plugged in, or over Bluetooth (BLE-MIDI) if the module is already paired in the system settings.</p>
+  <ul class="steps">
+    <li><strong>Kit:</strong> pick which drum kit to load in the first menu, and which saved mix to use in the second ("Default kit" is the current unnamed mix — named presets show up here once saved). Tap the ✕ next to the name, inside the dropdown, to delete a kit or mix you no longer use.</li>
+    <li><strong>Save kit / Export kit:</strong> "Save custom kit" records the current mix under a name, without generating a file — it stays inside the app, for quick switching later. "Export kit" generates a full .zip (samples + mapping + mix + hi-hat stages) to take the kit to another device or make a backup.</li>
+    <li><strong>Audio output:</strong> chooses where the sound goes. For Bluetooth devices to show up in the list, tap "Grant Bluetooth permissions" first — Android asks for a nearby-devices permission (that's how the system discovers which Bluetooth devices are paired, nothing to do with your actual location).</li>
+    <li><strong>Test without MIDI:</strong> tap the buttons to hear the loaded kit without needing any controller connected. Hit strength (velocity) varies with where you tap inside the button — lower is softer, higher is harder.</li>
+  </ul>
+  <div class="callout"><strong>Tip:</strong> the ☰ menu in the top-right corner has the audio latency selector — if you feel a delay between hitting and hearing the sound, try a "more stable" option there.</div>
+  <img class="shot" src="img/en/01_inicio.jpg" alt="Home tab of Th-FDrums Player">
+  <div class="shot-row">
+    <figure><img src="img/en/inicio_salvar_kit.jpg" alt="Save Kit dialog"><figcaption>Save kit</figcaption></figure>
+    <figure><img src="img/en/inicio_bluetooth.jpg" alt="Bluetooth permission"><figcaption>Bluetooth permission</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="mapa-en">
+  <span class="feature-tag">Map tab</span>
+  <h2>Note mapping and hi-hat calibration</h2>
+  <p>Here you see and adjust which MIDI note triggers each piece of the kit. There are three modes, switchable via the tabs at the top:</p>
+  <ul class="steps">
+    <li><strong>Kit pieces:</strong> lists every piece of the loaded kit. In each row: ▶ plays the piece, the "note" field shows/edits which MIDI note triggers it, ⇄ opens "Swap" to replace that piece's sample with another one from the bank, and + saves the current piece to the bank (Import tab → Piece bank) under its own name.</li>
+    <li><strong>Add new piece / Clear mapping:</strong> at the end of the list, "Add new piece" creates an extra row to map a bank piece that isn't in the kit yet; "Clear pad mapping" removes all assigned notes at once (it doesn't delete the pieces, just turns off their MIDI trigger).</li>
+    <li><strong>GM notes (general):</strong> the same idea, but organized by the standard General MIDI mapping (useful to compare against your module's documentation) — also includes the hi-hat pad/pedal note fields and a "MIDI events" log to check in real time what the module is sending.</li>
+    <li><strong>Hi-hat:</strong> a screen dedicated to pedal calibration — essential if you play with modules from different manufacturers, since each one sends the pedal position in a different value range.</li>
+  </ul>
+  <div class="callout">
+    <strong>Pedal calibration:</strong> move the hi-hat pedal from fully open to fully closed — the app detects the minimum and maximum values automatically, shown live above the slider. If open/closed come out swapped, check "Invert pedal". "Reset to default" goes back to the standard MIDI range (0-127) if the calibration comes out wrong.
+  </div>
+  <p class="muted">The "Fine tuning (experimental)" section controls pedal signal smoothing — only touch it if the hi-hat feels like it's reacting abruptly or too "electric" to movement.</p>
+  <div class="shot-row">
+    <figure><img src="img/en/02_mapa.jpg" alt="Kit pieces mapping"><figcaption>Kit pieces</figcaption></figure>
+    <figure><img src="img/en/mapa_add_note.jpg" alt="Save piece to bank from the Map tab"><figcaption>Save piece to bank</figcaption></figure>
+    <figure><img src="img/en/mapa_troca_peca.jpg" alt="Swap a piece's sample"><figcaption>Swap sample</figcaption></figure>
+    <figure><img src="img/en/mapa_gm.jpg" alt="GM notes (general) tab"><figcaption>GM notes (general)</figcaption></figure>
+    <figure><img src="img/en/03_mapa_chimbal.jpg" alt="Hi-hat calibration"><figcaption>Hi-hat calibration</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="mixer-en">
+  <span class="feature-tag">Mixer tab</span>
+  <h2>Volume, EQ, compressor, gate, and reverb per piece</h2>
+  <p>Each piece of the kit has its own mixer channel — volume and tuning (in semitones) always visible, plus an optional processing block with gate, EQ, compressor, and reverb. The Master bus brings everything together with its own EQ, compressor, and reverb.</p>
+  <ul class="steps">
+    <li><strong>Channel / Master:</strong> switches between editing the selected piece's channel or the Master's general controls.</li>
+    <li><strong>Piece selector:</strong> chooses which piece you're editing — the list only shows the pieces the loaded kit actually has.</li>
+    <li><strong>Enable processing:</strong> off by default (only volume/tuning stay active, lighter on the processor). Turn it on to reveal the four processing tabs below.</li>
+    <li><strong>Gate:</strong> cuts the sound below a threshold, useful for eliminating microphone noise/bleed on recorded pieces.</li>
+    <li><strong>EQ:</strong> 6-band parametric equalizer, with an HPF filter (cuts lows below a frequency) that can be toggled separately.</li>
+    <li><strong>Compressor:</strong> evens out the piece's dynamics, with an adjustable threshold.</li>
+    <li><strong>Reverb:</strong> per-piece reverb send (room size, damping, return level).</li>
+    <li><strong>Master:</strong> the same EQ, compressor, and reverb blocks, but applied to the whole mix — no gate, since it wouldn't make sense on a bus.</li>
+    <li><strong>Presets:</strong> the dropdown at the top switches between built-in presets (Rock, Jazz, Metal, Pop, Funk, Vintage, Arena, Dry room, or Flat with no processing) — picking one replaces the current channel's mix. Save your own via "Save kit" on the Home tab.</li>
+  </ul>
+  <img class="shot" src="img/en/04_mixer.jpg" alt="Mixer tab">
+  <div class="shot-row">
+    <figure><img src="img/en/mixer_gate.jpg" alt="Mixer Gate tab"><figcaption>Gate</figcaption></figure>
+    <figure><img src="img/en/mixer_eq.jpg" alt="Mixer EQ tab"><figcaption>EQ</figcaption></figure>
+    <figure><img src="img/en/mixer_compressor.jpg" alt="Mixer Compressor tab"><figcaption>Compressor</figcaption></figure>
+    <figure><img src="img/en/mixer_reverb.jpg" alt="Mixer Reverb tab"><figcaption>Reverb</figcaption></figure>
+    <figure><img src="img/en/mixer_master.jpg" alt="Mixer Master tab"><figcaption>Master</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="musica-en">
+  <span class="feature-tag">Music tab</span>
+  <h2>Play along with a track and record the session</h2>
+  <p>Import a song (MP3, WAV, AAC, OGG, or FLAC) to play along with while you practice, and record the whole session — drums and music mixed together — as audio or video.</p>
+  <ul class="steps">
+    <li><strong>Choose Music:</strong> imports the audio file. Compressed formats (MP3/AAC/OGG/FLAC) load via streaming — playback unlocks as soon as the format is recognized, without waiting for the whole file to decode.</li>
+    <li><strong>Recording — Audio or Video:</strong> in Video mode, the camera opens with a live preview behind the panels (which turn semi-transparent) — you can still tap/use the controls while you frame the shot. "Brightness" adjusts the camera's exposure, and the camera used (front/back) is chosen in the ☰ menu → Camera.</li>
+    <li><strong>Countdown:</strong> adjustable from 0 to 15s, gives you time to get set up on the drums before the recording actually starts — with the "Start music together with recording" option to play the track automatically at that same instant.</li>
+    <li><strong>When you stop:</strong> a "Recording stopped" dialog opens instantly, with a progress bar while the video is processed (merging the footage with the app's internal audio). You can edit the file name before confirming with "Save", or discard a test recording with "Discard".</li>
+    <li><strong>Saved recordings:</strong> play, share, or delete a recording you've already made — the files go straight into a dedicated folder under Music/Movies on the device, also visible in other apps (Instagram, WhatsApp, etc.).</li>
+  </ul>
+  <div class="shot-row">
+    <figure><img src="img/en/05_musica.jpg" alt="Music tab and recording"><figcaption>Audio mode</figcaption></figure>
+    <figure><img src="img/en/musica_video.jpg" alt="Video mode with camera preview"><figcaption>Video mode</figcaption></figure>
+    <figure><img src="img/en/musica_save_dialog.jpg" alt="Recording stopped dialog"><figcaption>Recording stopped</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="importar-en">
+  <span class="feature-tag">Import tab</span>
+  <h2>Six ways to bring a kit into the app</h2>
+  <p>The kit importer accepts several source formats — pick in the top menu which type of file you have:</p>
+  <ul class="steps">
+    <li><strong>Ready-made SFZ kit:</strong> a .zip with a kit already in the app's internal format (the same format "Export kit", on the Home tab, produces).</li>
+    <li><strong>DecentSampler kit (.dspreset):</strong> automatically converts kits in this popular format.</li>
+    <li><strong>Hydrogen kit (.h2drumkit):</strong> same idea, for kits exported from Hydrogen (only WAV samples are supported).</li>
+    <li><strong>Raw recordings (WAV):</strong> a folder with separate recordings of each piece — the app detects the hits automatically and builds the velocity regions on its own.</li>
+    <li><strong>Import piece:</strong> brings a single piece (a cymbal, an extra tom) from a ready audio file into the piece bank — without needing a whole kit. "Record piece now" opens a dialog with a timer and a record button: hit the piece a few times with different intensities, straight through the device's microphone, and confirm with "Use this recording".</li>
+    <li><strong>Piece bank:</strong> lists the pieces already recorded/imported separately (the ones from the step above), organized by piece — tap ▶ to listen or ✕ to delete a specific recording.</li>
+  </ul>
+  <img class="shot" src="img/en/06_importar.jpg" alt="Kit import modes">
+  <div class="shot-row">
+    <figure><img src="img/en/importar_dropdown.jpg" alt="Menu with the six import modes"><figcaption>The 6 modes</figcaption></figure>
+    <figure><img src="img/en/importar_decentsampler.jpg" alt="Import DecentSampler kit"><figcaption>DecentSampler kit</figcaption></figure>
+    <figure><img src="img/en/importar_hydrogen.jpg" alt="Import Hydrogen kit"><figcaption>Hydrogen kit</figcaption></figure>
+    <figure><img src="img/en/importar_gravacoes_cruas.jpg" alt="Import raw WAV recordings"><figcaption>Raw recordings</figcaption></figure>
+    <figure><img src="img/en/importar_peca.jpg" alt="Import a single piece"><figcaption>Import piece</figcaption></figure>
+    <figure><img src="img/en/importar_peca_gravando.jpg" alt="Recording a piece via microphone"><figcaption>Record piece now</figcaption></figure>
+    <figure><img src="img/en/importar_banco_pecas.jpg" alt="Recorded piece bank"><figcaption>Piece bank</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="menu-en">
+  <span class="feature-tag">Menu ☰</span>
+  <h2>Theme, language, latency, camera, and help</h2>
+  <p>The ☰ icon in the top-right corner, available on any tab, gathers the app's general settings.</p>
+  <img class="shot" src="img/en/07_menu.jpg" alt="Main menu open, highlighting Help">
+  <ul class="steps">
+    <li><strong>Theme:</strong> Dark (default), Dark Blue, Dark Green, or Light — changes the whole app's color palette instantly.</li>
+    <li><strong>Language:</strong> Follow system (default), Português, English, or Español.</li>
+    <li><strong>Audio latency:</strong> four profiles — Minimal (lowest possible delay, may glitch on weaker devices), Low, Balanced (good for most devices), and Stable (prioritizes not glitching, with more noticeable latency). If you hear crackling or glitches while playing, go up a level; if you feel a delay between hitting and hearing the sound, go down a level.</li>
+    <li><strong>Camera:</strong> chooses which camera (front or back) opens in Video recording mode, on the Music tab.</li>
+    <li><strong>Help:</strong> opens this guide.</li>
+    <li><strong>About:</strong> app version and a summary of the main features.</li>
+  </ul>
+  <div class="shot-row">
+    <figure><img src="img/en/menu_tema.jpg" alt="Theme dialog"><figcaption>Theme</figcaption></figure>
+    <figure><img src="img/en/menu_idioma.jpg" alt="Language dialog"><figcaption>Language</figcaption></figure>
+    <figure><img src="img/en/menu_latencia.jpg" alt="Audio latency dialog"><figcaption>Audio latency</figcaption></figure>
+    <figure><img src="img/en/menu_camera.jpg" alt="Camera dialog"><figcaption>Camera</figcaption></figure>
+    <figure><img src="img/en/menu_sobre.jpg" alt="About dialog"><figcaption>About</figcaption></figure>
+  </div>
+</section>
+
+</main>
+<footer>Th-FDrums Player — this guide isn't affiliated with the Play Store, it's just app documentation.</footer>
+</div>
+
+<!-- ==================== ES ==================== -->
+<div id="es" class="lang-block">
+
+<div class="hero">
+  <h1>Guía completa de la <span>app</span></h1>
+  <p>Paso a paso de cada función, con capturas reales de la aplicación. Usa el menú de abajo para ir directo a la pestaña que quieras entender mejor.</p>
+  <div class="toc">
+    <a href="#inicio-es">Inicio</a>
+    <a href="#mapa-es">Mapa</a>
+    <a href="#mixer-es">Mixer</a>
+    <a href="#musica-es">Música</a>
+    <a href="#importar-es">Importar</a>
+    <a href="#menu-es">Menú ☰</a>
+  </div>
+</div>
+
+<main>
+
+<section class="feature" id="inicio-es">
+  <span class="feature-tag">Pestaña Inicio</span>
+  <h2>Conectar el módulo y elegir el kit</h2>
+  <p>Aquí es donde defines qué kit de batería va a sonar y hacia dónde sale el audio. La app detecta módulos MIDI conectados automáticamente — por USB en cuanto conectas el cable, o por Bluetooth (BLE-MIDI) si el módulo ya está emparejado en la configuración del sistema.</p>
+  <ul class="steps">
+    <li><strong>Kit:</strong> elige qué kit de batería cargar en el primer menú, y qué mezcla guardada usar en el segundo ("Kit Predeterminado" es la mezcla actual, sin nombre — los presets con nombre aparecen aquí una vez guardados). Toca la ✕ junto al nombre, dentro del menú desplegable, para eliminar un kit o una mezcla que ya no uses.</li>
+    <li><strong>Guardar kit / Exportar kit:</strong> "Guardar kit personalizado" registra la mezcla actual con un nombre, sin generar un archivo — se queda dentro de la app, para cambiar rápido después. "Exportar kit" genera un .zip completo (muestras + mapeo + mezcla + etapas del hi-hat) para llevar el kit a otro dispositivo o hacer una copia de seguridad.</li>
+    <li><strong>Salida de audio:</strong> elige a dónde va el sonido. Para que los dispositivos Bluetooth aparezcan en la lista, toca primero "Conceder permisos de Bluetooth" — Android pide un permiso de dispositivos cercanos (así es como el sistema descubre qué dispositivos Bluetooth están emparejados, no tiene nada que ver con tu ubicación real).</li>
+    <li><strong>Probar sin MIDI:</strong> toca los botones para escuchar el kit cargado sin necesitar ningún controlador conectado. La fuerza del toque (velocity) varía según dónde toques dentro del botón — más abajo es más suave, más arriba es más fuerte.</li>
+  </ul>
+  <div class="callout"><strong>Consejo:</strong> el menú ☰ en la esquina superior derecha tiene el selector de latencia de audio — si notas un retraso entre el toque y el sonido, prueba ahí una opción "más estable".</div>
+  <img class="shot" src="img/es/01_inicio.jpg" alt="Pestaña Inicio de Th-FDrums Player">
+  <div class="shot-row">
+    <figure><img src="img/es/inicio_salvar_kit.jpg" alt="Diálogo Guardar Kit"><figcaption>Guardar kit</figcaption></figure>
+    <figure><img src="img/es/inicio_bluetooth.jpg" alt="Permiso de Bluetooth"><figcaption>Permiso de Bluetooth</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="mapa-es">
+  <span class="feature-tag">Pestaña Mapa</span>
+  <h2>Mapeo de notas y calibración del hi-hat</h2>
+  <p>Aquí ves y ajustas qué nota MIDI dispara cada pieza del kit. Hay tres modos, intercambiables con las pestañas de arriba:</p>
+  <ul class="steps">
+    <li><strong>Piezas del kit:</strong> lista todas las piezas del kit cargado. En cada fila: ▶ toca la pieza, el campo "nota" muestra/edita qué nota MIDI la activa, ⇄ abre "Cambiar" para sustituir la muestra de esa pieza por otra del banco, y + guarda la pieza actual en el banco (pestaña Importar → Banco de piezas) con un nombre propio.</li>
+    <li><strong>Agregar pieza nueva / Borrar mapeo:</strong> al final de la lista, "Agregar pieza nueva" crea una fila extra para mapear una pieza del banco que aún no está en el kit; "Borrar mapeo de pads" quita todas las notas asignadas de una vez (no borra las piezas, solo apaga su disparador MIDI).</li>
+    <li><strong>Notas GM (general):</strong> la misma idea, pero organizada por el mapeo General MIDI estándar (útil para comparar con la documentación de tu módulo) — también incluye los campos de nota del pad/pedal del hi-hat y un registro de "Eventos MIDI" para ver en tiempo real lo que envía el módulo.</li>
+    <li><strong>Chimbal:</strong> pantalla dedicada a la calibración del pedal — esencial para quien toca con módulos de fabricantes distintos, ya que cada uno envía la posición del pedal en un rango de valores diferente.</li>
+  </ul>
+  <div class="callout">
+    <strong>Calibración del pedal:</strong> mueve el pedal del hi-hat de totalmente abierto a totalmente cerrado — la app detecta los valores mínimo y máximo automáticamente, mostrados en tiempo real sobre el control deslizante. Si abierto/cerrado salen invertidos, marca "Invertir pedal". "Restaurar estándar" vuelve al rango MIDI predeterminado (0-127) si la calibración sale mal.
+  </div>
+  <p class="muted">El "Ajuste fino (experimental)" controla el suavizado de la señal del pedal — tócalo solo si sientes que el hi-hat reacciona de forma abrupta o demasiado "eléctrica" al movimiento.</p>
+  <div class="shot-row">
+    <figure><img src="img/es/02_mapa.jpg" alt="Mapeo de piezas del kit"><figcaption>Piezas del kit</figcaption></figure>
+    <figure><img src="img/es/mapa_add_note.jpg" alt="Guardar pieza en el banco desde el Mapa"><figcaption>Guardar pieza en el banco</figcaption></figure>
+    <figure><img src="img/es/mapa_troca_peca.jpg" alt="Cambiar la muestra de una pieza"><figcaption>Cambiar muestra</figcaption></figure>
+    <figure><img src="img/es/mapa_gm.jpg" alt="Pestaña Notas GM (general)"><figcaption>Notas GM (general)</figcaption></figure>
+    <figure><img src="img/es/03_mapa_chimbal.jpg" alt="Calibración del hi-hat"><figcaption>Calibración del hi-hat</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="mixer-es">
+  <span class="feature-tag">Pestaña Mixer</span>
+  <h2>Volumen, EQ, compresor, gate y reverb por pieza</h2>
+  <p>Cada pieza del kit tiene su propio canal de mezcla — volumen y afinación (en semitonos) siempre visibles, y un bloque de procesamiento opcional con gate, EQ, compresor y reverb. El bus Master reúne todo con su propio EQ, compresor y reverb.</p>
+  <ul class="steps">
+    <li><strong>Canal / Master:</strong> alterna entre editar el canal de la pieza seleccionada o los controles generales del Master.</li>
+    <li><strong>Selector de pieza:</strong> elige qué pieza estás editando — la lista solo muestra las piezas que realmente tiene el kit cargado.</li>
+    <li><strong>Activar procesamiento:</strong> apagado por defecto (solo volumen/afinación siguen activos, más ligero para el procesador). Actívalo para revelar las cuatro pestañas de procesamiento de abajo.</li>
+    <li><strong>Gate:</strong> corta el sonido por debajo de un umbral (threshold), útil para eliminar ruido/filtración de micrófono en piezas grabadas.</li>
+    <li><strong>EQ:</strong> ecualizador paramétrico de 6 bandas, con un filtro HPF (corta graves por debajo de una frecuencia) que se puede activar aparte.</li>
+    <li><strong>Compresor:</strong> nivela la dinámica de la pieza, con el threshold ajustable.</li>
+    <li><strong>Reverb:</strong> envío de reverb por pieza (tamaño de la sala, damping, nivel de retorno).</li>
+    <li><strong>Master:</strong> los mismos bloques de EQ, compresor y reverb, pero aplicados a toda la mezcla — sin gate, ya que no tiene sentido en un bus.</li>
+    <li><strong>Presets:</strong> el menú desplegable de arriba cambia entre presets integrados (Rock, Jazz, Metal, Pop, Funk, Vintage, Arena, Ambiente seco, o Flat sin procesamiento) — elegir uno reemplaza la mezcla del canal actual. Guarda la tuya propia en "Guardar kit" en la pestaña Inicio.</li>
+  </ul>
+  <img class="shot" src="img/es/04_mixer.jpg" alt="Pestaña Mixer">
+  <div class="shot-row">
+    <figure><img src="img/es/mixer_gate.jpg" alt="Pestaña Gate del Mixer"><figcaption>Gate</figcaption></figure>
+    <figure><img src="img/es/mixer_eq.jpg" alt="Pestaña EQ del Mixer"><figcaption>EQ</figcaption></figure>
+    <figure><img src="img/es/mixer_compressor.jpg" alt="Pestaña Compresor del Mixer"><figcaption>Compresor</figcaption></figure>
+    <figure><img src="img/es/mixer_reverb.jpg" alt="Pestaña Reverb del Mixer"><figcaption>Reverb</figcaption></figure>
+    <figure><img src="img/es/mixer_master.jpg" alt="Pestaña Master del Mixer"><figcaption>Master</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="musica-es">
+  <span class="feature-tag">Pestaña Música</span>
+  <h2>Tocar junto con una pista y grabar la sesión</h2>
+  <p>Importa una canción (MP3, WAV, AAC, OGG o FLAC) para tocar junto mientras practicas, y graba toda la sesión — batería y música mezcladas — en audio o video.</p>
+  <ul class="steps">
+    <li><strong>Elegir Música:</strong> importa el archivo de audio. Los formatos comprimidos (MP3/AAC/OGG/FLAC) cargan en streaming — la reproducción se habilita en cuanto se reconoce el formato, sin esperar a que todo el archivo se decodifique.</li>
+    <li><strong>Grabación — Audio o Video:</strong> en modo Video, la cámara se abre con una vista previa en vivo detrás de los paneles (que se vuelven semitransparentes) — puedes seguir tocando/usando los controles mientras encuadras. "Brillo" ajusta la exposición de la cámara, y la cámara usada (frontal/trasera) se elige en el menú ☰ → Cámara.</li>
+    <li><strong>Cuenta regresiva:</strong> ajustable de 0 a 15s, te da tiempo de organizarte en la batería antes de que la grabación empiece de verdad — con la opción "Iniciar la música junto con la grabación" para reproducir la pista automáticamente en ese mismo instante.</li>
+    <li><strong>Al detener:</strong> un diálogo "Grabación detenida" se abre al instante, con una barra de progreso mientras se procesa el video (combina la filmación con el audio interno de la app). Puedes editar el nombre del archivo antes de confirmar en "Guardar", o descartar una grabación de prueba en "Descartar".</li>
+    <li><strong>Grabaciones guardadas:</strong> reproducir, compartir o eliminar una grabación ya hecha — los archivos van directo a una carpeta dedicada en Música/Películas del dispositivo, visible también en otras apps (Instagram, WhatsApp, etc.).</li>
+  </ul>
+  <div class="shot-row">
+    <figure><img src="img/es/05_musica.jpg" alt="Pestaña Música y grabación"><figcaption>Modo Audio</figcaption></figure>
+    <figure><img src="img/es/musica_video.jpg" alt="Modo Video con vista previa de cámara"><figcaption>Modo Video</figcaption></figure>
+    <figure><img src="img/es/musica_save_dialog.jpg" alt="Diálogo Grabación detenida"><figcaption>Grabación detenida</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="importar-es">
+  <span class="feature-tag">Pestaña Importar</span>
+  <h2>Seis formas de traer un kit a la app</h2>
+  <p>El importador de kits acepta varios formatos de origen — elige en el menú superior qué tipo de archivo tienes:</p>
+  <ul class="steps">
+    <li><strong>Kit SFZ listo:</strong> un .zip con un kit ya en el formato interno de la app (el mismo formato que produce "Exportar kit", en la pestaña Inicio).</li>
+    <li><strong>Kit DecentSampler (.dspreset):</strong> convierte automáticamente kits en este formato popular.</li>
+    <li><strong>Kit Hydrogen (.h2drumkit):</strong> la misma idea, para kits exportados de Hydrogen (solo se admiten muestras en WAV).</li>
+    <li><strong>Grabaciones crudas (WAV):</strong> una carpeta con grabaciones sueltas de cada pieza — la app detecta los golpes automáticamente y arma las regiones de velocity por sí sola.</li>
+    <li><strong>Importar pieza:</strong> trae una pieza suelta (un platillo, un tom extra) desde un archivo de audio listo hacia el banco de piezas — sin necesitar un kit completo. "Grabar pieza ahora" abre un diálogo con cronómetro y un botón de grabar: toca la pieza varias veces con intensidades distintas, directo por el micrófono del dispositivo, y confirma con "Usar esta grabación".</li>
+    <li><strong>Banco de piezas:</strong> lista las piezas ya grabadas/importadas por separado (las que aparecieron en el paso anterior), organizadas por pieza — toca ▶ para escuchar o ✕ para eliminar una grabación específica.</li>
+  </ul>
+  <img class="shot" src="img/es/06_importar.jpg" alt="Modos de importación de kit">
+  <div class="shot-row">
+    <figure><img src="img/es/importar_dropdown.jpg" alt="Menú con los seis modos de importación"><figcaption>Los 6 modos</figcaption></figure>
+    <figure><img src="img/es/importar_decentsampler.jpg" alt="Importar Kit DecentSampler"><figcaption>Kit DecentSampler</figcaption></figure>
+    <figure><img src="img/es/importar_hydrogen.jpg" alt="Importar Kit Hydrogen"><figcaption>Kit Hydrogen</figcaption></figure>
+    <figure><img src="img/es/importar_gravacoes_cruas.jpg" alt="Importar grabaciones crudas en WAV"><figcaption>Grabaciones crudas</figcaption></figure>
+    <figure><img src="img/es/importar_peca.jpg" alt="Importar una pieza suelta"><figcaption>Importar pieza</figcaption></figure>
+    <figure><img src="img/es/importar_peca_gravando.jpg" alt="Grabando una pieza por micrófono"><figcaption>Grabar pieza ahora</figcaption></figure>
+    <figure><img src="img/es/importar_banco_pecas.jpg" alt="Banco de piezas grabadas"><figcaption>Banco de piezas</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="menu-es">
+  <span class="feature-tag">Menú ☰</span>
+  <h2>Tema, idioma, latencia, cámara y ayuda</h2>
+  <p>El ícono ☰ en la esquina superior derecha, disponible en cualquier pestaña, reúne la configuración general de la app.</p>
+  <img class="shot" src="img/es/07_menu.jpg" alt="Menú principal abierto, con Ayuda destacada">
+  <ul class="steps">
+    <li><strong>Tema:</strong> Oscuro (predeterminado), Oscuro Azul, Oscuro Verde o Claro — cambia la paleta de colores de toda la app al instante.</li>
+    <li><strong>Idioma:</strong> Seguir el sistema (predeterminado), Português, English o Español.</li>
+    <li><strong>Latencia de audio:</strong> cuatro perfiles — Mínima (menor retraso posible, puede fallar en dispositivos más limitados), Baja, Equilibrada (buena para la mayoría de dispositivos) y Estable (prioriza no fallar, con latencia más perceptible). Si escuchas chasquidos o fallos al tocar, sube un nivel; si sientes un retraso entre el toque y el sonido, baja un nivel.</li>
+    <li><strong>Cámara:</strong> elige qué cámara (frontal o trasera) se abre en el modo de grabación Video, en la pestaña Música.</li>
+    <li><strong>Ayuda:</strong> abre esta guía.</li>
+    <li><strong>Acerca de:</strong> versión de la app y un resumen de las funciones principales.</li>
+  </ul>
+  <div class="shot-row">
+    <figure><img src="img/es/menu_tema.jpg" alt="Diálogo de Tema"><figcaption>Tema</figcaption></figure>
+    <figure><img src="img/es/menu_idioma.jpg" alt="Diálogo de Idioma"><figcaption>Idioma</figcaption></figure>
+    <figure><img src="img/es/menu_latencia.jpg" alt="Diálogo de Latencia de audio"><figcaption>Latencia de audio</figcaption></figure>
+    <figure><img src="img/es/menu_camera.jpg" alt="Diálogo de Cámara"><figcaption>Cámara</figcaption></figure>
+    <figure><img src="img/es/menu_sobre.jpg" alt="Diálogo Acerca de"><figcaption>Acerca de</figcaption></figure>
+  </div>
+</section>
+
+</main>
+<footer>Th-FDrums Player — esta guía no está afiliada a la Play Store, es solo documentación de la app.</footer>
+</div>
+
+<script>
+function showLang(code) {
+  document.querySelectorAll('.lang-block').forEach(function(el) { el.classList.remove('active'); });
+  document.getElementById(code).classList.add('active');
+  document.querySelectorAll('.lang-switch button').forEach(function(btn) { btn.classList.remove('active'); });
+  event.target.classList.add('active');
+  document.documentElement.lang = code === 'pt' ? 'pt-BR' : code;
+}
+</script>
 
 </body>
 </html>
