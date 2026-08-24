@@ -247,9 +247,9 @@
   <div class="header-inner">
     <div class="wordmark">Th-<span>FDrums</span> Player</div>
     <div class="lang-switch">
-      <button class="active" onclick="showLang('pt')">Português</button>
-      <button onclick="showLang('en')">English</button>
-      <button onclick="showLang('es')">Español</button>
+      <button class="active" data-lang="pt" onclick="showLang('pt')">Português</button>
+      <button data-lang="en" onclick="showLang('en')">English</button>
+      <button data-lang="es" onclick="showLang('es')">Español</button>
     </div>
   </div>
 </header>
@@ -713,11 +713,19 @@
 <script>
 function showLang(code) {
   document.querySelectorAll('.lang-block').forEach(function(el) { el.classList.remove('active'); });
-  document.getElementById(code).classList.add('active');
-  document.querySelectorAll('.lang-switch button').forEach(function(btn) { btn.classList.remove('active'); });
-  event.target.classList.add('active');
+  var block = document.getElementById(code);
+  if (!block) return;
+  block.classList.add('active');
+  document.querySelectorAll('.lang-switch button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-lang') === code);
+  });
   document.documentElement.lang = code === 'pt' ? 'pt-BR' : code;
 }
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang');
+  if (lang === 'en' || lang === 'es') showLang(lang);
+})();
 </script>
 
 </body>
