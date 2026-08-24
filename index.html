@@ -235,6 +235,7 @@
       <a href="#mixer">Mixer</a>
       <a href="#musica">Música</a>
       <a href="#importar">Importar</a>
+      <a href="#menu">Menu</a>
     </nav>
   </div>
 </header>
@@ -248,6 +249,7 @@
     <a href="#mixer">Mixer</a>
     <a href="#musica">Música</a>
     <a href="#importar">Importar</a>
+    <a href="#menu">Menu ☰</a>
   </div>
 </div>
 
@@ -258,12 +260,17 @@
   <h2>Conectar o módulo e escolher o kit</h2>
   <p>É por aqui que você define qual kit de bateria vai tocar e pra onde o som vai sair. O app detecta módulos MIDI conectados automaticamente — por USB assim que o cabo é plugado, ou por Bluetooth (BLE-MIDI) se o módulo já estiver pareado nas configurações do sistema.</p>
   <ul class="steps">
-    <li><strong>Kit:</strong> escolha qual kit de bateria carregar no primeiro menu, e qual mixagem salva usar no segundo (a "Kit Padrão" é a mixagem atual, sem nome — presets nomeados aparecem aqui depois de salvos).</li>
-    <li><strong>Saída de áudio:</strong> escolhe pra onde o som vai. "Automático" segue a prioridade do Android (Bluetooth &gt; fone com fio &gt; alto-falante) — mude manualmente só se quiser forçar uma saída específica.</li>
+    <li><strong>Kit:</strong> escolha qual kit de bateria carregar no primeiro menu, e qual mixagem salva usar no segundo (a "Kit Padrão" é a mixagem atual, sem nome — presets nomeados aparecem aqui depois de salvos). Toque no ✕ ao lado do nome, dentro do menu suspenso, pra excluir um kit ou uma mixagem que você não usa mais.</li>
+    <li><strong>Salvar kit / Exportar kit:</strong> "Salvar kit" grava a mixagem atual com um nome, sem gerar arquivo — fica só dentro do app, pra alternar rápido depois. "Exportar kit" gera um .zip completo (amostras + mapeamento + mixagem + estágios do chimbal) pra levar o kit pra outro aparelho ou fazer backup.</li>
+    <li><strong>Saída de áudio:</strong> escolhe pra onde o som vai. Pra aparelhos Bluetooth aparecerem na lista, toque em "Conceder permissões Bluetooth" primeiro — o Android pede uma permissão de localização por perto (é assim que o sistema descobre quais aparelhos Bluetooth estão pareados, nada a ver com sua localização real).</li>
     <li><strong>Testar sem MIDI:</strong> toque os botões pra ouvir o kit carregado sem precisar de nenhum controlador conectado. A força do toque (velocity) varia conforme onde você toca dentro do botão — mais embaixo é mais suave, mais em cima é mais forte.</li>
   </ul>
   <div class="callout"><strong>Dica:</strong> o menu ☰ no canto superior direito tem o seletor de latência de áudio — se sentir atraso entre o toque e o som, experimente uma opção "Mais estável" ali.</div>
   <img class="shot" src="img/pt/01_inicio.jpg" alt="Aba Início do Th-FDrums Player">
+  <div class="shot-row">
+    <figure><img src="img/pt/inicio_salvar_kit.jpg" alt="Diálogo Salvar Kit"><figcaption>Salvar kit</figcaption></figure>
+    <figure><img src="img/pt/inicio_bluetooth.jpg" alt="Permissão Bluetooth"><figcaption>Permissão Bluetooth</figcaption></figure>
+  </div>
 </section>
 
 <section class="feature" id="mapa">
@@ -271,8 +278,9 @@
   <h2>Mapeamento de notas e calibração do chimbal</h2>
   <p>Aqui você vê e ajusta qual nota MIDI dispara cada peça do kit. Tem três modos, alternáveis pelas abas no topo:</p>
   <ul class="steps">
-    <li><strong>Peças do kit:</strong> lista todas as peças do kit carregado — toque o ▶ pra ouvir, e o campo "nota" pra ver ou editar qual nota MIDI aciona aquela peça.</li>
-    <li><strong>Notas GM (geral):</strong> a mesma ideia, mas organizada pelo mapeamento General MIDI padrão (útil pra comparar com a documentação do seu módulo).</li>
+    <li><strong>Peças do kit:</strong> lista todas as peças do kit carregado. Em cada linha: ▶ toca a peça, o campo "nota" mostra/edita qual nota MIDI aciona aquela peça, ⇄ abre "Trocar" pra substituir a amostra daquela peça por outra do banco, e + salva a peça atual no banco (aba Importar → Banco de peças) com um nome próprio.</li>
+    <li><strong>Adicionar peça nova / Limpar mapeamento:</strong> no fim da lista, "Adicionar peça nova" cria uma linha extra pra mapear uma peça do banco que ainda não está no kit; "Limpar mapeamento de pads" remove todas as notas atribuídas de uma vez (não apaga as peças, só desliga o gatilho MIDI delas).</li>
+    <li><strong>Notas GM (geral):</strong> a mesma ideia, mas organizada pelo mapeamento General MIDI padrão (útil pra comparar com a documentação do seu módulo) — inclui também os campos de nota do pad/pedal do chimbal e um log de "Eventos MIDI" pra conferir em tempo real o que o módulo está enviando.</li>
     <li><strong>Chimbal:</strong> tela dedicada à calibração do pedal — essencial pra quem toca com módulos de fabricantes diferentes, já que cada um manda a posição do pedal numa faixa de valores diferente.</li>
   </ul>
   <div class="callout">
@@ -281,20 +289,36 @@
   <p class="muted">O "Ajuste fino (experimental)" controla a suavização do sinal do pedal — só mexa se sentir o chimbal reagindo de forma abrupta ou "elétrica" demais ao movimento.</p>
   <div class="shot-row">
     <figure><img src="img/pt/02_mapa.jpg" alt="Mapeamento de peças do kit"><figcaption>Peças do kit</figcaption></figure>
+    <figure><img src="img/pt/mapa_add_note.jpg" alt="Salvar peça no banco a partir do Mapa"><figcaption>Salvar peça no banco</figcaption></figure>
+    <figure><img src="img/pt/mapa_troca_peca.jpg" alt="Trocar amostra de uma peça"><figcaption>Trocar amostra</figcaption></figure>
+    <figure><img src="img/pt/mapa_gm.jpg" alt="Aba Notas GM (geral)"><figcaption>Notas GM (geral)</figcaption></figure>
     <figure><img src="img/pt/03_mapa_chimbal.jpg" alt="Calibração do chimbal"><figcaption>Calibração do chimbal</figcaption></figure>
   </div>
 </section>
 
 <section class="feature" id="mixer">
   <span class="feature-tag">Aba Mixer</span>
-  <h2>Volume, EQ, compressor e afinação por peça</h2>
-  <p>Cada peça do kit tem seu próprio canal de mixagem — volume, afinação (em semitons), equalizador de 4 bandas, compressor e gate, tudo ajustável em tempo real enquanto você toca. O bus Master reúne tudo com seu próprio EQ, compressor e reverb.</p>
+  <h2>Volume, EQ, compressor, gate e reverb por peça</h2>
+  <p>Cada peça do kit tem seu próprio canal de mixagem — volume e afinação (em semitons) sempre visíveis, e um bloco de processamento opcional com gate, EQ, compressor e reverb. O bus Master reúne tudo com seu próprio EQ, compressor e reverb.</p>
   <ul class="steps">
     <li><strong>Canal / Master:</strong> alterna entre editar o canal da peça selecionada ou os controles gerais do Master.</li>
     <li><strong>Seletor de peça:</strong> escolhe qual peça está editando — a lista mostra só as peças que o kit carregado realmente tem.</li>
-    <li><strong>Presets:</strong> salve a mixagem atual como um preset nomeado (aba Início) pra alternar rapidamente entre configurações diferentes do mesmo kit.</li>
+    <li><strong>Ativar processamento:</strong> desligado por padrão (só volume/afinação ficam ativos, mais leve pro processador). Ligue pra revelar as quatro abas de processamento abaixo.</li>
+    <li><strong>Gate:</strong> corta o som abaixo de um limiar (threshold), útil pra eliminar ruído/vazamento de microfone em peças gravadas.</li>
+    <li><strong>EQ:</strong> equalizador paramétrico de 6 bandas, com um filtro HPF (corta graves abaixo de uma frequência) que pode ser ligado à parte.</li>
+    <li><strong>Compressor:</strong> nivela a dinâmica da peça, com o threshold ajustável.</li>
+    <li><strong>Reverb:</strong> envio de reverb por peça (tamanho da sala, damping, nível de retorno).</li>
+    <li><strong>Master:</strong> mesmos blocos de EQ, compressor e reverb, mas aplicados na mixagem inteira — sem gate, já que não faz sentido num bus.</li>
+    <li><strong>Presets:</strong> o dropdown no topo troca entre presets prontos (Rock, Jazz, Metal, Pop, Funk, Vintage, Arena, Ambiente seco, ou Flat sem processamento) — escolher um substitui a mixagem do canal atual. Salve a sua própria em "Salvar kit" na aba Início.</li>
   </ul>
   <img class="shot" src="img/pt/04_mixer.jpg" alt="Aba Mixer">
+  <div class="shot-row">
+    <figure><img src="img/pt/mixer_gate.jpg" alt="Aba Gate do Mixer"><figcaption>Gate</figcaption></figure>
+    <figure><img src="img/pt/mixer_eq.jpg" alt="Aba EQ do Mixer"><figcaption>EQ</figcaption></figure>
+    <figure><img src="img/pt/mixer_compressor.jpg" alt="Aba Compressor do Mixer"><figcaption>Compressor</figcaption></figure>
+    <figure><img src="img/pt/mixer_reverb.jpg" alt="Aba Reverb do Mixer"><figcaption>Reverb</figcaption></figure>
+    <figure><img src="img/pt/mixer_master.jpg" alt="Aba Master do Mixer"><figcaption>Master</figcaption></figure>
+  </div>
 </section>
 
 <section class="feature" id="musica">
@@ -303,11 +327,15 @@
   <p>Importe uma música (MP3, WAV, AAC, OGG ou FLAC) pra tocar junto enquanto pratica, e grave a sessão inteira — bateria e música misturadas — em áudio ou vídeo.</p>
   <ul class="steps">
     <li><strong>Escolher Música:</strong> importa o arquivo de áudio. Formatos comprimidos (MP3/AAC/OGG/FLAC) carregam em streaming — o play libera assim que o formato é reconhecido, sem esperar o arquivo inteiro decodificar.</li>
-    <li><strong>Gravação — Áudio ou Vídeo:</strong> no modo Vídeo, a câmera abre com prévia ao vivo por cima dos controles do app (você continua podendo tocar/mexer nos painéis enquanto enquadra). Uma contagem regressiva ajustável dá tempo de se organizar na bateria antes da gravação começar de verdade, com a opção de iniciar a música automaticamente junto.</li>
+    <li><strong>Gravação — Áudio ou Vídeo:</strong> no modo Vídeo, a câmera abre com prévia ao vivo por trás dos painéis (que ficam semi-transparentes) — você continua podendo tocar/mexer nos controles enquanto enquadra. "Brilho" ajusta a exposição da câmera, e a câmera usada (frontal/traseira) se escolhe no menu ☰ → Câmera.</li>
+    <li><strong>Contagem regressiva:</strong> ajustável de 0 a 15s, dá tempo de se organizar na bateria antes da gravação começar de verdade — com a opção "Iniciar música junto com a gravação" pra tocar a faixa automaticamente no mesmo instante.</li>
+    <li><strong>Ao parar:</strong> um diálogo "Gravação parada" abre na hora, com barra de progresso enquanto o vídeo é processado (junta a filmagem com o áudio interno do app). Dá pra editar o nome do arquivo antes de confirmar em "Salvar", ou descartar a gravação de teste em "Descartar".</li>
     <li><strong>Gravações salvas:</strong> tocar, compartilhar ou excluir uma gravação já feita — os arquivos vão direto pra uma pasta dedicada em Música/Filmes do aparelho, visível também em outros apps (Instagram, WhatsApp etc.).</li>
   </ul>
   <div class="shot-row">
-    <figure><img src="img/pt/05_musica.jpg" alt="Aba Música e gravação"><figcaption>Música e gravação</figcaption></figure>
+    <figure><img src="img/pt/05_musica.jpg" alt="Aba Música e gravação"><figcaption>Modo Áudio</figcaption></figure>
+    <figure><img src="img/pt/musica_video.jpg" alt="Modo Vídeo com prévia da câmera"><figcaption>Modo Vídeo</figcaption></figure>
+    <figure><img src="img/pt/musica_save_dialog.jpg" alt="Diálogo Gravação parada"><figcaption>Gravação parada</figcaption></figure>
   </div>
 </section>
 
@@ -320,10 +348,41 @@
     <li><strong>Kit DecentSampler (.dspreset):</strong> converte automaticamente kits nesse formato popular.</li>
     <li><strong>Kit Hydrogen (.h2drumkit):</strong> mesma ideia, pra kits exportados do Hydrogen (só amostras em WAV são suportadas).</li>
     <li><strong>Gravações cruas (WAV):</strong> uma pasta com gravações avulsas de cada peça — o app detecta os toques automaticamente e monta as regiões de velocity sozinho.</li>
-    <li><strong>Importar peça:</strong> traz uma peça avulsa (um prato, um tom extra) pro banco de peças, sem precisar de um kit inteiro.</li>
-    <li><strong>Banco de peças:</strong> grava uma peça na hora com o microfone do aparelho, sem precisar de um arquivo pronto.</li>
+    <li><strong>Importar peça:</strong> traz uma peça avulsa (um prato, um tom extra) de um arquivo de áudio pronto, pro banco de peças — sem precisar de um kit inteiro. "Gravar peça agora" abre um diálogo com cronômetro e um botão de gravar: peça pra tocar a peça algumas vezes com intensidades diferentes, direto pelo microfone do aparelho, e confirme em "Usar esta gravação".</li>
+    <li><strong>Banco de peças:</strong> lista as peças já gravadas/importadas separadamente (as que apareceram no passo anterior), organizadas por peça — toque ▶ pra ouvir ou ✕ pra excluir uma gravação específica.</li>
   </ul>
   <img class="shot" src="img/pt/06_importar.jpg" alt="Modos de importação de kit">
+  <div class="shot-row">
+    <figure><img src="img/pt/importar_dropdown.jpg" alt="Menu com os seis modos de importação"><figcaption>Os 6 modos</figcaption></figure>
+    <figure><img src="img/pt/importar_decentsampler.jpg" alt="Importar Kit DecentSampler"><figcaption>Kit DecentSampler</figcaption></figure>
+    <figure><img src="img/pt/importar_hydrogen.jpg" alt="Importar Kit Hydrogen"><figcaption>Kit Hydrogen</figcaption></figure>
+    <figure><img src="img/pt/importar_gravacoes_cruas.jpg" alt="Importar gravações cruas em WAV"><figcaption>Gravações cruas</figcaption></figure>
+    <figure><img src="img/pt/importar_peca.jpg" alt="Importar peça avulsa"><figcaption>Importar peça</figcaption></figure>
+    <figure><img src="img/pt/importar_peca_gravando.jpg" alt="Gravando uma peça pelo microfone"><figcaption>Gravar peça agora</figcaption></figure>
+    <figure><img src="img/pt/importar_banco_pecas.jpg" alt="Banco de peças gravadas"><figcaption>Banco de peças</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="menu">
+  <span class="feature-tag">Menu ☰</span>
+  <h2>Tema, idioma, latência, câmera e ajuda</h2>
+  <p>O ícone ☰ no canto superior direito, disponível em qualquer aba, reúne as configurações gerais do app.</p>
+  <img class="shot" src="img/pt/07_menu.jpg" alt="Menu geral aberto, com destaque pra Ajuda">
+  <ul class="steps">
+    <li><strong>Tema:</strong> Escuro (padrão), Escuro Azul, Escuro Verde ou Claro — muda a paleta de cores do app inteiro na hora.</li>
+    <li><strong>Idioma:</strong> Seguir o sistema (padrão), Português, English ou Español.</li>
+    <li><strong>Latência de áudio:</strong> quatro perfis — Mínima (menor atraso possível, pode estourar em aparelhos mais fracos), Baixa, Equilibrada (boa pra maioria dos aparelhos) e Estável (prioriza não travar, com latência mais perceptível). Se sentir estalos ou travamentos ao tocar, suba um nível; se sentir atraso entre o toque e o som, desça um nível.</li>
+    <li><strong>Câmera:</strong> escolhe qual câmera (frontal ou traseira) abre no modo Vídeo de gravação, na aba Música.</li>
+    <li><strong>Ajuda:</strong> abre este guia.</li>
+    <li><strong>Sobre:</strong> versão do app e um resumo dos recursos principais.</li>
+  </ul>
+  <div class="shot-row">
+    <figure><img src="img/pt/menu_tema.jpg" alt="Diálogo de Tema"><figcaption>Tema</figcaption></figure>
+    <figure><img src="img/pt/menu_idioma.jpg" alt="Diálogo de Idioma"><figcaption>Idioma</figcaption></figure>
+    <figure><img src="img/pt/menu_latencia.jpg" alt="Diálogo de Latência de áudio"><figcaption>Latência de áudio</figcaption></figure>
+    <figure><img src="img/pt/menu_camera.jpg" alt="Diálogo de Câmera"><figcaption>Câmera</figcaption></figure>
+    <figure><img src="img/pt/menu_sobre.jpg" alt="Diálogo Sobre"><figcaption>Sobre</figcaption></figure>
+  </div>
 </section>
 
 </main>
