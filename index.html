@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Th-FDrums Player — Guia completo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0b;
+    --panel: #131315;
+    --panel-2: #17171a;
+    --ring: #e8e2d6;
+    --accent: #f5811f;
+    --accent-dim: #b95d10;
+    --accent-glow: rgba(245,129,31,0.35);
+    --text: #f2ede4;
+    --text-dim: #8c8880;
+    --border: #232326;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.65;
+  }
+  a { color: var(--accent); }
+
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(10,10,11,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    letter-spacing: 0.06em;
+    color: var(--text);
+  }
+  .wordmark span { color: var(--accent); }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; }
+  nav a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: color 0.15s, background 0.15s;
+  }
+  nav a:hover { color: var(--text); background: var(--panel); }
+
+  .hero {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 56px 24px 32px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+    margin: 0 0 12px;
+    letter-spacing: 0.01em;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p {
+    color: var(--text-dim);
+    font-size: 1.02rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  main { max-width: 920px; margin: 0 auto; padding: 8px 24px 80px; }
+
+  section.feature {
+    padding: 56px 0;
+    border-top: 1px solid var(--border);
+  }
+  section.feature:first-of-type { border-top: none; }
+
+  .feature-tag {
+    display: inline-block;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(245,129,31,0.1);
+    border: 1px solid rgba(245,129,31,0.3);
+    border-radius: 20px;
+    padding: 5px 14px;
+    margin-bottom: 14px;
+  }
+  section.feature h2 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    margin: 0 0 18px;
+  }
+  section.feature p { color: #d8d2c6; margin: 0 0 16px; }
+  section.feature p.muted { color: var(--text-dim); font-size: 0.92rem; }
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 20px 0 28px;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 14px 16px 14px 52px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: 0.94rem;
+  }
+  .steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #1a0e04;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 500;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .steps li strong { color: var(--text); }
+
+  .shot {
+    display: block;
+    max-width: 340px;
+    width: 100%;
+    margin: 8px auto 0;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.6);
+  }
+  .shot-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .shot-row figure { margin: 0; max-width: 300px; flex: 1 1 260px; }
+  .shot-row img { width: 100%; border-radius: 16px; border: 1px solid var(--border); }
+  .shot-row figcaption {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 8px;
+  }
+
+  .callout {
+    background: var(--panel-2);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 0.9rem;
+    color: #d8d2c6;
+    margin: 20px 0;
+  }
+  .callout strong { color: var(--accent); }
+
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin: 32px 0 0;
+  }
+  .toc a {
+    text-decoration: none;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 14px;
+    color: var(--text);
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: center;
+    transition: border-color 0.15s, transform 0.15s;
+  }
+  .toc a:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 24px 48px;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.82rem;
+  }
+  footer a { color: var(--text-dim); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="wordmark">Th-<span>FDrums</span> Player</div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#mixer">Mixer</a>
+      <a href="#musica">Música</a>
+      <a href="#importar">Importar</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Guia completo do <span>app</span></h1>
+  <p>Passo a passo de cada recurso, com prints reais do aplicativo. Use o menu acima pra pular direto pra aba que você quer entender melhor.</p>
+  <div class="toc">
+    <a href="#inicio">Início</a>
+    <a href="#mapa">Mapa</a>
+    <a href="#mixer">Mixer</a>
+    <a href="#musica">Música</a>
+    <a href="#importar">Importar</a>
+  </div>
+</div>
+
+<main>
+
+<section class="feature" id="inicio">
+  <span class="feature-tag">Aba Início</span>
+  <h2>Conectar o módulo e escolher o kit</h2>
+  <p>É por aqui que você define qual kit de bateria vai tocar e pra onde o som vai sair. O app detecta módulos MIDI conectados automaticamente — por USB assim que o cabo é plugado, ou por Bluetooth (BLE-MIDI) se o módulo já estiver pareado nas configurações do sistema.</p>
+  <ul class="steps">
+    <li><strong>Kit:</strong> escolha qual kit de bateria carregar no primeiro menu, e qual mixagem salva usar no segundo (a "Kit Padrão" é a mixagem atual, sem nome — presets nomeados aparecem aqui depois de salvos).</li>
+    <li><strong>Saída de áudio:</strong> escolhe pra onde o som vai. "Automático" segue a prioridade do Android (Bluetooth &gt; fone com fio &gt; alto-falante) — mude manualmente só se quiser forçar uma saída específica.</li>
+    <li><strong>Testar sem MIDI:</strong> toque os botões pra ouvir o kit carregado sem precisar de nenhum controlador conectado. A força do toque (velocity) varia conforme onde você toca dentro do botão — mais embaixo é mais suave, mais em cima é mais forte.</li>
+  </ul>
+  <div class="callout"><strong>Dica:</strong> o menu ☰ no canto superior direito tem o seletor de latência de áudio — se sentir atraso entre o toque e o som, experimente uma opção "Mais estável" ali.</div>
+  <img class="shot" src="img/pt/01_inicio.jpg" alt="Aba Início do Th-FDrums Player">
+</section>
+
+<section class="feature" id="mapa">
+  <span class="feature-tag">Aba Mapa</span>
+  <h2>Mapeamento de notas e calibração do chimbal</h2>
+  <p>Aqui você vê e ajusta qual nota MIDI dispara cada peça do kit. Tem três modos, alternáveis pelas abas no topo:</p>
+  <ul class="steps">
+    <li><strong>Peças do kit:</strong> lista todas as peças do kit carregado — toque o ▶ pra ouvir, e o campo "nota" pra ver ou editar qual nota MIDI aciona aquela peça.</li>
+    <li><strong>Notas GM (geral):</strong> a mesma ideia, mas organizada pelo mapeamento General MIDI padrão (útil pra comparar com a documentação do seu módulo).</li>
+    <li><strong>Chimbal:</strong> tela dedicada à calibração do pedal — essencial pra quem toca com módulos de fabricantes diferentes, já que cada um manda a posição do pedal numa faixa de valores diferente.</li>
+  </ul>
+  <div class="callout">
+    <strong>Calibração do pedal:</strong> mexa o pedal do chimbal do totalmente aberto ao totalmente fechado — o app detecta os valores mínimo e máximo automaticamente, mostrados em tempo real acima do slider. Se o aberto/fechado saírem invertidos, marque "Inverter pedal". "Restaurar automático" volta pro intervalo padrão MIDI (0-127) caso a calibração saia errada.
+  </div>
+  <p class="muted">O "Ajuste fino (experimental)" controla a suavização do sinal do pedal — só mexa se sentir o chimbal reagindo de forma abrupta ou "elétrica" demais ao movimento.</p>
+  <div class="shot-row">
+    <figure><img src="img/pt/02_mapa.jpg" alt="Mapeamento de peças do kit"><figcaption>Peças do kit</figcaption></figure>
+    <figure><img src="img/pt/03_mapa_chimbal.jpg" alt="Calibração do chimbal"><figcaption>Calibração do chimbal</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="mixer">
+  <span class="feature-tag">Aba Mixer</span>
+  <h2>Volume, EQ, compressor e afinação por peça</h2>
+  <p>Cada peça do kit tem seu próprio canal de mixagem — volume, afinação (em semitons), equalizador de 4 bandas, compressor e gate, tudo ajustável em tempo real enquanto você toca. O bus Master reúne tudo com seu próprio EQ, compressor e reverb.</p>
+  <ul class="steps">
+    <li><strong>Canal / Master:</strong> alterna entre editar o canal da peça selecionada ou os controles gerais do Master.</li>
+    <li><strong>Seletor de peça:</strong> escolhe qual peça está editando — a lista mostra só as peças que o kit carregado realmente tem.</li>
+    <li><strong>Presets:</strong> salve a mixagem atual como um preset nomeado (aba Início) pra alternar rapidamente entre configurações diferentes do mesmo kit.</li>
+  </ul>
+  <img class="shot" src="img/pt/04_mixer.jpg" alt="Aba Mixer">
+</section>
+
+<section class="feature" id="musica">
+  <span class="feature-tag">Aba Música</span>
+  <h2>Tocar junto com uma faixa e gravar a sessão</h2>
+  <p>Importe uma música (MP3, WAV, AAC, OGG ou FLAC) pra tocar junto enquanto pratica, e grave a sessão inteira — bateria e música misturadas — em áudio ou vídeo.</p>
+  <ul class="steps">
+    <li><strong>Escolher Música:</strong> importa o arquivo de áudio. Formatos comprimidos (MP3/AAC/OGG/FLAC) carregam em streaming — o play libera assim que o formato é reconhecido, sem esperar o arquivo inteiro decodificar.</li>
+    <li><strong>Gravação — Áudio ou Vídeo:</strong> no modo Vídeo, a câmera abre com prévia ao vivo por cima dos controles do app (você continua podendo tocar/mexer nos painéis enquanto enquadra). Uma contagem regressiva ajustável dá tempo de se organizar na bateria antes da gravação começar de verdade, com a opção de iniciar a música automaticamente junto.</li>
+    <li><strong>Gravações salvas:</strong> tocar, compartilhar ou excluir uma gravação já feita — os arquivos vão direto pra uma pasta dedicada em Música/Filmes do aparelho, visível também em outros apps (Instagram, WhatsApp etc.).</li>
+  </ul>
+  <div class="shot-row">
+    <figure><img src="img/pt/05_musica.jpg" alt="Aba Música e gravação"><figcaption>Música e gravação</figcaption></figure>
+  </div>
+</section>
+
+<section class="feature" id="importar">
+  <span class="feature-tag">Aba Importar</span>
+  <h2>Seis formas de trazer um kit pro app</h2>
+  <p>O importador de kit aceita vários formatos de origem — escolha no menu superior qual tipo de arquivo você tem:</p>
+  <ul class="steps">
+    <li><strong>Kit SFZ pronto:</strong> um .zip com um kit já no formato interno do app (o mesmo formato que "Exportar kit", na aba Início, produz).</li>
+    <li><strong>Kit DecentSampler (.dspreset):</strong> converte automaticamente kits nesse formato popular.</li>
+    <li><strong>Kit Hydrogen (.h2drumkit):</strong> mesma ideia, pra kits exportados do Hydrogen (só amostras em WAV são suportadas).</li>
+    <li><strong>Gravações cruas (WAV):</strong> uma pasta com gravações avulsas de cada peça — o app detecta os toques automaticamente e monta as regiões de velocity sozinho.</li>
+    <li><strong>Importar peça:</strong> traz uma peça avulsa (um prato, um tom extra) pro banco de peças, sem precisar de um kit inteiro.</li>
+    <li><strong>Banco de peças:</strong> grava uma peça na hora com o microfone do aparelho, sem precisar de um arquivo pronto.</li>
+  </ul>
+  <img class="shot" src="img/pt/06_importar.jpg" alt="Modos de importação de kit">
+</section>
+
+</main>
+
+<footer>
+  Th-FDrums Player — este guia não é afiliado à Play Store, é só documentação do app.
+</footer>
+
+</body>
+</html>
